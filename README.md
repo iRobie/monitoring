@@ -46,8 +46,8 @@ Want to add additional scripts? Improve existing scenarios? Just fork it, and su
 
 Two Vagrant boxes are provided with this script.
 
-- `monitoring` on 192.168.12.10
-- `app1` on 192.168.12.11
+- `monitoring` on 10.1.34.101
+- `app1` on 10.1.34.102
 
 The `monitoring` box is intended for the different monitoring stacks, while `app1` is intended to try out clients.
 
@@ -55,13 +55,13 @@ The `monitoring` box is intended for the different monitoring stacks, while `app
 
 The `monitoring` box provides the following:
 
-- [Kibana](http://192.168.12.10:5601)
-- [Tessera](http://192.168.12.10:5000)
-- [Grafana](http://192.168.12.10:3000)
-- [Flapjack](http://192.168.12.10:3080)
-- [Uchiwa](http://192.168.12.10:8010)
-- [ElasticHQ](http://192.168.12.10:9200/_plugin/HQ)
-- [Cachet](http://192.168.12.10:4477)
+- [Kibana](http://10.1.34.101:5601)
+- [Tessera](http://10.1.34.101:5000)
+- [Grafana](http://10.1.34.101:3000)
+- [Flapjack](http://10.1.34.101:3080)
+- [Uchiwa](http://10.1.34.101:8010)
+- [ElasticHQ](http://10.1.34.101:9200/_plugin/HQ)
+- [Cachet](http://10.1.34.101:4477)
 
 For client nodes, it provides:
 
@@ -89,8 +89,8 @@ cd /vagrant && ./install-all-opentsdb.sh
 
 This script also installs Grafana with the OpenTSDB backend configured. Elasticsearch is installed as a dashboard store for Grafana.
 
-- [Grafana](http://192.168.12.10:3000)
-- [OpenTSDB dashboard](http://192.168.12.10:4242/)
+- [Grafana](http://10.1.34.101:3000)
+- [OpenTSDB dashboard](http://10.1.34.101:4242/)
 
 TCollector is installed on the monitoring host to provide some sample metrics. Note that this script can take more than 10 minutes to install, depending on your bandwidth.
 
@@ -122,7 +122,7 @@ sudo -i
 cd /vagrant && ./install-all-sentry.sh
 ```
 
-After installation, the [Sentry web interface](http://192.168.12.10:9000) should be available. Login with the username `admin` and the password `secret`.
+After installation, the [Sentry web interface](http://10.1.34.101:9000) should be available. Login with the username `admin` and the password `secret`.
 
 ### Graylog
 
@@ -138,7 +138,7 @@ sudo -i
 cd /vagrant && ./install-all-graylog.sh
 ```
 
-After installation, you can access one the [web interface](http://192.168.12.10:8940/). Use the username `admin` and the password `password`.
+After installation, you can access one the [web interface](http://10.1.34.101:8940/). Use the username `admin` and the password `password`.
 
 ### Heka
 
@@ -156,10 +156,10 @@ cd /vagrant && ./install-all-heka.sh
 
 This package provides the following:
 
-- [Heka dashboard](http://192.168.12.10:4352/)
-- [Kibana](http://192.168.12.10:5601)
-- [ElasticHQ](http://192.168.12.10:9200/_plugin/HQ/)
-- Heka Protobuf input on `192.168.12.10` at TCP port 5565
+- [Heka dashboard](http://10.1.34.101:4352/)
+- [Kibana](http://10.1.34.101:5601)
+- [ElasticHQ](http://10.1.34.101:9200/_plugin/HQ/)
+- Heka Protobuf input on `10.1.34.101` at TCP port 5565
 
 ### InfluxDB
 
@@ -177,9 +177,9 @@ cd /vagrant && ./install-all-influxdb.sh
 
 This package provides the following:
 
-- [Grafana](http://192.168.12.10:3000) configured for InfluxDB
-- [InfluxDB admin interface](http://192.168.12.10:8083/) with default credentials
-- [Uchiwa](http://192.168.12.10:8010) dashboard for Sensu
+- [Grafana](http://10.1.34.101:3000) configured for InfluxDB
+- [InfluxDB admin interface](http://10.1.34.101:8083/) with default credentials
+- [Uchiwa](http://10.1.34.101:8010) dashboard for Sensu
 
 Use `vagrant up app1` to start collecting metrics
 
@@ -199,10 +199,10 @@ cd /vagrant && ./install-all-flume.sh
 
 This package provides the following:
 
-- [Kibana](http://192.168.12.10:5601)
-- [ElasticHQ](http://192.168.12.10:9200/_plugin/HQ/)
-- Avro input on `192.168.12.10` at TCP port 41414
-- Syslog input on `192.168.12.10` at TCP port 1514
+- [Kibana](http://10.1.34.101:5601)
+- [ElasticHQ](http://10.1.34.101:9200/_plugin/HQ/)
+- Avro input on `10.1.34.101` at TCP port 41414
+- Syslog input on `10.1.34.101` at TCP port 1514
 
 When using Kibana, you will need to change the index pattern to `[flume-]YYYY-MM-DD`.
 
@@ -222,10 +222,10 @@ cd /vagrant && ./install-all-fluentd.sh
 
 This package provides the following:
 
-- [Kibana](http://192.168.12.10:5601)
-- [ElasticHQ](http://192.168.12.10:9200/_plugin/HQ/)
-- HTTP input on `192.168.12.10` at TCP port 9880
-- Syslog input on `192.168.12.10` at TCP port 1514
+- [Kibana](http://10.1.34.101:5601)
+- [ElasticHQ](http://10.1.34.101:9200/_plugin/HQ/)
+- HTTP input on `10.1.34.101` at TCP port 9880
+- Syslog input on `10.1.34.101` at TCP port 1514
 
 ### Testing Syslog Receivers
 

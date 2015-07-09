@@ -1,7 +1,7 @@
 {
   "network": {
     "servers": [
-      "192.168.12.10:5043"
+      "10.1.34.101:5043"
     ],
 
     "ssl ca": "/etc/logstash-forwarder/server-cert.pem",
